@@ -23,9 +23,10 @@ To support multiple instances of this microservice the following action should b
    Implement security measures to protect the API endpoints, such as authentication and authorization.
 
 5. **Monitoring and Logging:**  
-   Integrate monitoring and logging to track the instamces health and performance across instances (e.g., using Spring Actuator, Prometheus, Grafana).
+   Integrate monitoring and logging to track the instances health and performance across instances (e.g., using Spring Actuator, Prometheus, Grafana).
 
-## Endpoints
+6. **For large inputs:**  
+   If the word is large, we will need a more efficiant algorithm to check if a letter is a subsequence, such as using a Trie or a more complex data structure, building the string each time will not be good anough.
 
 ### 1. Set the Word
 
