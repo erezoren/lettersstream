@@ -33,21 +33,18 @@ public class LettersStreamController {
     if (wordService.getWord() == null) {
       return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(LetterResponse
           .builder()
-          .matching(false)
           .reason(WORD_MISSING_ERROR)
           .build());
     }
     if (letter == null) {
       return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(LetterResponse
           .builder()
-          .matching(false)
           .reason(LETTERS_MISSING_ERROR)
           .build());
     }
     if (letter.trim().length() != 1) {
       return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(LetterResponse
           .builder()
-          .matching(false)
           .reason(ONE_CHARACTER_ONLY_ERROR)
           .build());
     }
