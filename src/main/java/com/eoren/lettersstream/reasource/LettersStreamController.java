@@ -44,7 +44,7 @@ public class LettersStreamController {
           .reason(LETTERS_MISSING_ERROR)
           .build());
     }
-    if (letter.trim().length() != 1 || !Character.isLetter(letter.trim().charAt(0))) {
+    if (letter.trim().length() != 1) {
       return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(LetterResponse
           .builder()
           .matching(false)
