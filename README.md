@@ -28,6 +28,7 @@ To support multiple instances of this microservice the following action should b
 6. **For large inputs:**  
    If the word is large, we will need a more efficiant algorithm to check if a letter is a subsequence, such as using a Trie or a more complex data structure, building the string each time will not be good anough.
 
+## API Documentation
 ### 1. Set the Word
 
 **`GET /v1/word/{word}`**
@@ -96,20 +97,9 @@ The listener reacts to this event and updates the internal state of the letter m
 2. **Send letters** to `POST /v1/letters` to check if they match the set word.
 3. The service will only process letters if a word has been set first.
 
----
-Here’s how to add the requested sections to your `README.md`:
 
----
 
 ## Running the Application
-
-### With Maven
-
-You are correct. To build the application JAR before running or creating a Docker image, add the `mvn clean package` step.
-
-Add this to the "Running the Application" section:
-
----
 
 ### Build with Maven
 
@@ -161,11 +151,7 @@ The service will be available at `http://localhost:8080`.
 - REST API
 - Event-driven architecture (Spring Events)
 
----
 
-Add a section to your `README.md` describing the React webapp, its location, and how to run/build it. Here’s a concise addition:
-
----
 
 <h2 style="background: linear-gradient(90deg, #ff6a00, #ee0979, #50c9c3); -webkit-background-clip: text; color: transparent; background-clip: text;">
   Bonus - Web Application (React)
@@ -204,7 +190,3 @@ When building the Docker image for the backend, the React app is automatically b
 at [http://localhost:8080](http://localhost:8080).
 
 ---
-
-## License
-
-MIT (or your chosen license)
