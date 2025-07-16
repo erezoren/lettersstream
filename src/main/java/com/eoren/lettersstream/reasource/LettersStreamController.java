@@ -54,7 +54,7 @@ public class LettersStreamController {
 
   @GetMapping(value = "/word/{word}")
   public ResponseEntity<String> defineWord(@PathVariable("word") String word) {
-    if (word == null || word.isEmpty()) {
+    if (word == null || word.trim().isEmpty()) {
       return ResponseEntity
           .badRequest()
           .body(WORD_MISSING_ERROR);
