@@ -7,6 +7,10 @@ function App() {
   const [matchResult, setMatchResult] = useState(null);
 
   const handleSetWord = async () => {
+      if(word===""){
+        setMessage("Please input a word");
+        return
+      }
     const res = await fetch(`/v1/word/${word}`);
     const text = await res.text();
     setMessage(text);
@@ -24,18 +28,26 @@ function App() {
 
   return (
     <div style={{ maxWidth: 400, margin: "2rem auto", fontFamily: "sans-serif" }}>
+      <h1>Letter Stream Web App</h1>
       <h2>Set Word</h2>
-      <input value={word} onChange={e => setWord(e.target.value)} />
+      <input value={word} onChange={e => {
+        setWord(e.target.value)
+        setLetter("")
+      }
+
+      } />
       <button onClick={handleSetWord}>Set</button>
-      <div>{message}</div>
+      <div><p style={{color: "blue"}}>{message}</p></div>
       <h2>Check Letter</h2>
       <input value={letter} maxLength={1} onChange={e => setLetter(e.target.value)} />
       <button onClick={handleCheckLetter}>Check</button>
       {matchResult && (
         <div>
-          {matchResult.matching
-            ? "Letter matches the word!"
-            : `No match${matchResult.reason ? ": " + matchResult.reason : ""}`}
+          {
+            matchResult.matching
+              ? <p style={{color: "green"}}>Stream matches the word!</p>
+              : <p style={{color: "red"}}>{`No match${matchResult.reason ? ": " + matchResult.reason : ""}`}</p>
+          }
         </div>
       )}
     </div>

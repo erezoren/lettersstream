@@ -1,4 +1,4 @@
-package com.eoren.lettersstream.service;
+package com.eoren.lettersstream.service.event;
 
 import org.springframework.context.ApplicationEvent;
 

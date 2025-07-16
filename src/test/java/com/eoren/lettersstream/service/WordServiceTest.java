@@ -1,5 +1,6 @@
 package com.eoren.lettersstream.service;
 
+import com.eoren.lettersstream.service.event.WordChangedEvent;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;

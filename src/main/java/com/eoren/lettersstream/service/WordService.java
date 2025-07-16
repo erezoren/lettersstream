@@ -1,5 +1,6 @@
 package com.eoren.lettersstream.service;
 
+import com.eoren.lettersstream.service.event.WordChangedEvent;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;

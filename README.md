@@ -63,8 +63,14 @@ To support multiple instances of this microservice the following action should b
   "matching": true
 }
 ```
-
 or
+```json
+{
+  "matching": false
+}
+```
+
+or on error
 
 ```json
 {
@@ -119,7 +125,7 @@ This will create a JAR file in the `target` directory.
 You can then run the JAR with:
 
 ```sh
-java -jar target/letters-stream-service.jar
+java -jar target/lettersstream-0.0.1-SNAPSHOT.jar
 ```
 
 ### With IntelliJ IDEA

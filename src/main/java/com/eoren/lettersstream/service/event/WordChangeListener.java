@@ -1,5 +1,6 @@
-package com.eoren.lettersstream.service;
+package com.eoren.lettersstream.service.event;
 
+import com.eoren.lettersstream.service.LettersStreamService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
