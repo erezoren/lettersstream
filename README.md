@@ -160,8 +160,9 @@ Add a section to your `README.md` describing the React webapp, its location, and
 
 ---
 
-## Bonus - Web Application (React Frontend)
-
+<h2 style="background: linear-gradient(90deg, #ff6a00, #ee0979, #50c9c3); -webkit-background-clip: text; color: transparent; background-clip: text;">
+  Bonus - Web Application (React)
+</h2>
 The `letter-web-app` directory contains a React frontend for interacting with the Letters Stream Service API.
 
 ### Running Locally
