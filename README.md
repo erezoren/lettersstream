@@ -33,6 +33,10 @@ To support multiple instances of this microservice the following action should b
 
 **`GET /v1/word/{word}`**
 
+```shell
+curl -X GET http://localhost:8080/v1/word/cat
+```
+
 - **Description:** Sets the word to be used for letter matching.
 - **Request:**
     - Path variable: `word` (string, required)
@@ -47,6 +51,12 @@ To support multiple instances of this microservice the following action should b
 ### 2. Match a Letter
 
 **`POST /v1/letters`**
+
+```shell
+curl -X POST http://localhost:8080/v1/letters \
+     -H "Content-Type: text/plain" \
+     --data "a"
+```
 
 - **Description:** Checks if the provided letter is a subsequence of the set word.
 - **Request:**
