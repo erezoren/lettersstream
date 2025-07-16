@@ -13,17 +13,18 @@ public class LettersStreamService {
   private Deque<Character> buffer;
   private String word;
 
-  public void setWord(String word) {
+  //Serves as a listener for word changes
+  public void changeWord(String word) {
     this.word = word;
     windowSize = word.length();
     buffer = new ArrayDeque<>();
   }
 
-  public boolean isSubSequence(String letter) {
-    if (wordMissing(letter)) {
+  public boolean isSubSequence(String charecter) {
+    if (wordMissing(charecter)) {
       return false;
     }
-    buffer.addLast(letter.charAt(0));
+    buffer.addLast(charecter.charAt(0));
     if (buffer.size() > windowSize) {
       buffer.removeFirst();
     }

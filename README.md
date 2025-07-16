@@ -1,8 +1,7 @@
 # Letters Stream Service
 
-A simple Spring Boot REST API for streaming and matching letters against a predefined word.  
-The service demonstrates event-driven design using Spring's event system.
-it uses a sliding window approach to check if a letter is a subsequence of the set word.
+A simple Spring Boot REST API for streaming and matching characters against a predefined word.
+it uses a sliding window approach to check if a character stream is a match of the set word.
 
 ## Answer to question 5
 

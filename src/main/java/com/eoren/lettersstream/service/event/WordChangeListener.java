@@ -13,6 +13,6 @@ public class WordChangeListener {
 
   @EventListener
   public void onWordChanged(WordChangedEvent event) {
-    lettersStreamService.setWord(event.getNewWord());
+    lettersStreamService.changeWord(event.getNewWord());
   }
 }

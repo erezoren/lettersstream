@@ -15,8 +15,8 @@ public class LettersStreamServiceTest {
   }
 
   @Test
-  void testSetWordInitializesState() {
-    service.setWord("abc");
+  void testChangeWordInitializesState() {
+    service.changeWord("abc");
     assertThat(service.isSubSequence("a")).isFalse();
     assertThat(service.isSubSequence("b")).isFalse();
     assertThat(service.isSubSequence("c")).isTrue();
@@ -24,7 +24,7 @@ public class LettersStreamServiceTest {
 
   @Test
   void testIsSubSequenceReturnsTrueWhenMatch() {
-    service.setWord("xyz");
+    service.changeWord("xyz");
     assertThat(service.isSubSequence("x")).isFalse();
     assertThat(service.isSubSequence("y")).isFalse();
     assertThat(service.isSubSequence("z")).isTrue();
@@ -32,7 +32,7 @@ public class LettersStreamServiceTest {
 
   @Test
   void testIsSubSequenceReturnsFalseWhenNoMatch() {
-    service.setWord("abc");
+    service.changeWord("abc");
     service.isSubSequence("a");
     service.isSubSequence("b");
     assertThat(service.isSubSequence("x")).isFalse();
@@ -40,7 +40,7 @@ public class LettersStreamServiceTest {
 
   @Test
   void testBufferSlidingWindow() {
-    service.setWord("abc");
+    service.changeWord("abc");
     service.isSubSequence("a");
     service.isSubSequence("b");
     service.isSubSequence("c");
@@ -51,7 +51,7 @@ public class LettersStreamServiceTest {
 
   @Test
   void testMultipleMatches() {
-    service.setWord("ab");
+    service.changeWord("ab");
     assertThat(service.isSubSequence("a")).isFalse();
     assertThat(service.isSubSequence("b")).isTrue();
     assertThat(service.isSubSequence("a")).isFalse();
@@ -60,17 +60,17 @@ public class LettersStreamServiceTest {
 
   @Test
   void testResetClearsBuffer() {
-    service.setWord("ab");
+    service.changeWord("ab");
     service.isSubSequence("a");
     service.reset();
     assertThat(service.isSubSequence("b")).isFalse();
   }
 
   @Test
-  void testSetWordChangesWindowSize() {
-    service.setWord("ab");
+  void testChangeWordChangesWindowSize() {
+    service.changeWord("ab");
     service.isSubSequence("a");
-    service.setWord("xyz");
+    service.changeWord("xyz");
     assertThat(service.isSubSequence("x")).isFalse();
     assertThat(service.isSubSequence("y")).isFalse();
     assertThat(service.isSubSequence("z")).isTrue();
@@ -78,7 +78,7 @@ public class LettersStreamServiceTest {
 
   @Test
   void testSingleLetterWord() {
-    service.setWord("q");
+    service.changeWord("q");
     assertThat(service.isSubSequence("q")).isTrue();
     assertThat(service.isSubSequence("a")).isFalse();
     assertThat(service.isSubSequence("q")).isTrue();
@@ -86,7 +86,7 @@ public class LettersStreamServiceTest {
 
   @Test
   void testContinuousInput() {
-    service.setWord("xxx");
+    service.changeWord("xxx");
     String[] inputs = {"y", "x", "x", "x", "x", "t", "y", "x", "x"};
     boolean[] expected = {false, false, false, true, true, false, false, false, false};
 
@@ -99,7 +99,7 @@ public class LettersStreamServiceTest {
 
   @Test
   void testContinuousInput2() {
-    service.setWord("xyz");
+    service.changeWord("xyz");
     String[] inputs = {"y", "a", "a", "x", "z", "x", "y", "z", "z"};
     boolean[] expected = {false, false, false, false, false, false, false, true, false};
 
@@ -112,7 +112,7 @@ public class LettersStreamServiceTest {
 
   @Test
   void testEmptyWord() {
-    service.setWord("");
+    service.changeWord("");
     assertThat(service.isSubSequence("a")).isFalse();
   }
 }
