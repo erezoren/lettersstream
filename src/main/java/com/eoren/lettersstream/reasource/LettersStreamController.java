@@ -31,19 +31,19 @@ public class LettersStreamController {
   @PostMapping(value = "/letters", consumes = MediaType.TEXT_PLAIN_VALUE)
   public ResponseEntity<LetterResponse> receiveLetters(@RequestBody String letter) {
     if (wordService.getWord() == null) {
-      return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(LetterResponse
+      return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(LetterResponse
           .builder()
           .reason(WORD_MISSING_ERROR)
           .build());
     }
     if (letter == null) {
-      return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(LetterResponse
+      return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(LetterResponse
           .builder()
           .reason(LETTERS_MISSING_ERROR)
           .build());
     }
     if (letter.trim().length() != 1) {
-      return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(LetterResponse
+      return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(LetterResponse
           .builder()
           .reason(ONE_CHARACTER_ONLY_ERROR)
           .build());

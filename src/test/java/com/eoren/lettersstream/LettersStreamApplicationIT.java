@@ -62,7 +62,7 @@ public class LettersStreamApplicationIT {
     HttpEntity<String> request = new HttpEntity<>("a", headers);
 
     ResponseEntity<LetterResponse> response = restTemplate.postForEntity("/v1/letters", request, LetterResponse.class);
-    assertThat(response.getStatusCode()).isEqualTo(HttpStatus.INTERNAL_SERVER_ERROR);
+    assertThat(response.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
     assertThat(response.getBody()).isNotNull();
     assertThat(response.getBody().isMatching()).isFalse();
     assertThat(response.getBody().getReason()).isNotEmpty();

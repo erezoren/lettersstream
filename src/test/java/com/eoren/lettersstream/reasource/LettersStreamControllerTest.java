@@ -50,7 +50,7 @@ public class LettersStreamControllerTest {
     mockMvc.perform(post("/v1/letters")
             .contentType(MediaType.TEXT_PLAIN)
             .content("a"))
-        .andExpect(status().isInternalServerError())
+        .andExpect(status().isBadRequest())
         .andExpect(jsonPath("$.matching").value(false))
         .andExpect(jsonPath("$.reason").value(WORD_MISSING_ERROR));
   }
@@ -62,7 +62,7 @@ public class LettersStreamControllerTest {
     mockMvc.perform(post("/v1/letters")
             .contentType(MediaType.TEXT_PLAIN)
             .content("ab"))
-        .andExpect(status().isInternalServerError())
+        .andExpect(status().isBadRequest())
         .andExpect(jsonPath("$.matching").value(false))
         .andExpect(jsonPath("$.reason").value(ONE_CHARACTER_ONLY_ERROR));
   }
