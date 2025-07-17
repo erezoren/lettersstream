@@ -10,7 +10,7 @@ To support multiple instances of this microservice the following action should b
 1. **Statelessness:**  
    Service must be stateless and not store `word` data in memory. Instead, we can use an external store (Redis, database, External configuration) for shared word.
    All instances should read/write from this store to stay in sync, and consistency is a must, hence writing will be transactional and isolated, or at least use Read after
-   Write to verify the update is done.
+   Write to verify the update is done (Current service can have concurrency issues for multiple users).
 
 2. **Event Handling:**  
    Instead of `WordChangedEvent` which notifies the service of a word change, we will use a distributed event broker(e.g., Kafka, RabbitMQ) so all instances receive updates.
